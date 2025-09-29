@@ -48,7 +48,7 @@ public class GameStateCsvReader {
             if (numOfTokens != 8) {
                 throw new GameStateFormatException("Expected 8 tokens, but got " + numOfTokens +
                         " in line " + row + " ('" + line + "'");
-            // Hier die Sortierung einfügen
+            // Hier die Sortierung einfügen...
             }
             //  4.3. für jedes Token ein Spielfigur-Objekt anlegen und irgendwie merken
             for (int col=0; col<8; col++) {
