@@ -53,7 +53,7 @@ public class GameStateCsvReader {
             for (int col=0; col<8; col++) {
                 String token = tokens[col];
 
-                //TODO: prüfen ob leer oder Figur
+                //prüfen ob token eine "leere" oder Figur Zeichen ist
                 if(!token.equals("-"))
                 {
                     Piece piece = createPiece(token);
