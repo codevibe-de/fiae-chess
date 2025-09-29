@@ -15,7 +15,8 @@ https://en.wikipedia.org/wiki/Chess
 
 ### CSV
 
-Contains a letter (see "Pieces" above) for each piece.
-Empty segment means no piece.
-White pieces are defined by a capital letter (e.g. "Q") and black pieces with lowercase ("q").
-The file uses a comma (not semicolon) for separation.
+- Contains a letter (see "Pieces" above) for each piece.  
+- Empty segment means no piece.  
+- White pieces are defined by a capital letter (e.g. "Q") and black pieces with lowercase ("q").  
+- The file uses a comma (not semicolon) for separation.
+- The last line contains the keyword "black" or "white" to define the next moving player
