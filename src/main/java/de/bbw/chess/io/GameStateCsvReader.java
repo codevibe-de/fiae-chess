@@ -52,8 +52,13 @@ public class GameStateCsvReader {
             //  4.3. für jedes Token ein Spielfigur-Objekt anlegen und irgendwie merken
             for (int col=0; col<8; col++) {
                 String token = tokens[col];
-                Piece piece = createPiece(token);
-                board.setPiece(new Position(row, col), piece);
+
+                //TODO: prüfen ob leer oder Figur
+                if(!token.equals("-"))
+                {
+                    Piece piece = createPiece(token);
+                    board.setPiece(new Position(row, col), piece);
+                }
             }
         }
         // 5. letzte (neunte) Zeile lesen, muss "black" oder "white" enthalten
@@ -64,6 +69,9 @@ public class GameStateCsvReader {
 
 
     private Piece createPiece(String token) {
+
+        //TODO: token muss in eine Spielfigur klasse umgewandelt werden
+
         return null;
     }
 
