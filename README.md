@@ -2,6 +2,16 @@
 
 https://en.wikipedia.org/wiki/Chess
 
+## Todos
+
+- Klasse für jede Figur
+- mehr Code für die Position
+- GameBoard Implementierungen
+- erkennen, ob - oder Figur
+- letzte Zeile lesen
+- aktiven Spieler merken
+- abstrakte Piece Klasse um Position erweitern
+
 ## Pieces
 
 - Turm = Rook (R)
@@ -10,6 +20,12 @@ https://en.wikipedia.org/wiki/Chess
 - Königin = Queen (Q)
 - König = King (K)
 - Bauer = Pawn (P)
+
+## Core Concepts
+
+### The Board
+
+
 
 ## Data File Formats
 
