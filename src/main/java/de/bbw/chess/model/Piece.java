@@ -32,7 +32,7 @@ public abstract class Piece {
         return validMoves().contains(targetPos);
     }
 
-    public static record Diff(int x , int y){
+    protected static record Diff(int x , int y){
 
     }
 
