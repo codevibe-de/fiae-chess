@@ -1,19 +1,19 @@
 package de.bbw.chess.io;
 
-import de.bbw.chess.model.GameBoard;
-import de.bbw.chess.model.GameState;
-import de.bbw.chess.model.Piece;
-import de.bbw.chess.model.Position;
+import de.bbw.chess.model.*;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.List;
+import java.util.Objects;
 
 // CSV -> GameStateCsvReader -> GameState
 public class GameStateCsvReader {
 
     private final File file;
+    private  Player player1;
+    private  Player player2;
 
     public GameStateCsvReader(File file) {
         // Check if file exists and really is a file (and not a directory)
@@ -58,7 +58,20 @@ public class GameStateCsvReader {
             }
         }
         // 5. letzte (neunte) Zeile lesen, muss "black" oder "white" enthalten
+        // Es wird nur die neunte Zeile gelesen
+        String lastRow = rows.get(8).trim();
+        String activePlayer = "";
+        String passivPlayer = "";
+        if(lastRow.equalsIgnoreCase("white") || lastRow.equalsIgnoreCase("black")) {
+            activePlayer = lastRow;
+            passivPlayer = activePlayer.equalsIgnoreCase("white") ? "black" : "white";
+        } else throw new GameStateFormatException("Inkorrekte/fehlende Spielerfarbe");
+
         // 6. merke, wer aktive spieler ist
+        // Beide Spieler sind zur Weiterbenutzung verfügbar
+        player1 = new Player(activePlayer);
+        player1.setTurn(true);
+        player2 = new Player(passivPlayer);
 
         return null; // todo
     }
