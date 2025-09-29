@@ -26,7 +26,7 @@ public class GameStateCsvReader {
 
 
     public GameState read() throws IOException {
-        GameBoard board;
+        GameBoard board = null;
 
         // 1. Datei öffnen
         // 2. alle Zeilen in eine Liste lesen
