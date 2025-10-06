@@ -53,7 +53,9 @@ public class GameStateCsvReader {
             for (int col=0; col<8; col++) {
                 String token = tokens[col];
                 Piece piece = createPiece(token);
-                board.setPiece(new Position(row, col), piece);
+                if (piece != null) {
+                    board.setPiece(new Position(row, col), piece);
+                }
             }
         }
         // 5. letzte (neunte) Zeile lesen, muss "black" oder "white" enthalten
