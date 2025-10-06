@@ -11,6 +11,8 @@ import java.util.List;
 public class GameStateCsvReader {
 
     private final File file;
+    private  Player player1;
+    private  Player player2;
 
     public GameStateCsvReader(File file) {
         // Check if file exists and really is a file (and not a directory)
@@ -45,6 +47,7 @@ public class GameStateCsvReader {
             if (numOfTokens != 8) {
                 throw new GameStateFormatException("Expected 8 tokens, but got " + numOfTokens +
                         " in line " + row + " ('" + line + "'");
+            // Hier die Sortierung einfügen...
             }
             //  4.3. für jedes Token ein Spielfigur-Objekt anlegen und irgendwie merken
             for (int col=0; col<8; col++) {
@@ -54,7 +57,20 @@ public class GameStateCsvReader {
             }
         }
         // 5. letzte (neunte) Zeile lesen, muss "black" oder "white" enthalten
+        // Es wird nur die neunte Zeile gelesen
+        String lastRow = rows.get(8).trim();
+        String activePlayer = " ";
+        String inactivePlayer = " ";
+        if(lastRow.equalsIgnoreCase("white") || lastRow.equalsIgnoreCase("black")) {
+            activePlayer = lastRow;
+            inactivePlayer = activePlayer.equalsIgnoreCase("white") ? "black" : "white";
+        } else throw new GameStateFormatException("Inkorrekte/fehlende Spielerfarbe: " + lastRow + "Erwartet: 'white'/'black'");
+
         // 6. merke, wer aktive spieler ist
+        // Beide Spieler sind zur Weiterbenutzung verfügbar
+        player1 = new Player(activePlayer);
+        player1.setTurn(true);
+        player2 = new Player(inactivePlayer);
 
         return null; // todo
     }
