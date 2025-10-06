@@ -9,4 +9,6 @@ public class GameStateFormatException extends RuntimeException {
         super(message); // constructor chaining
     }
 
+
+
 }
