@@ -1,9 +1,6 @@
 package de.bbw.chess.io;
 
-import de.bbw.chess.model.GameBoard;
-import de.bbw.chess.model.GameState;
-import de.bbw.chess.model.Piece;
-import de.bbw.chess.model.Position;
+import de.bbw.chess.model.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +23,7 @@ public class GameStateCsvReader {
 
 
     public GameState read() throws IOException {
-        GameBoard board = null;
+        GameBoard board = new ZweiDimGameBoard();
 
         // 1. Datei öffnen
         // 2. alle Zeilen in eine Liste lesen

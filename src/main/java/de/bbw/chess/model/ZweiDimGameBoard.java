@@ -6,7 +6,6 @@ public class ZweiDimGameBoard implements GameBoard {
 
     public ZweiDimGameBoard() {
         this.array = new Piece[8][8];
-
     }
 
     @Override
@@ -17,8 +16,6 @@ public class ZweiDimGameBoard implements GameBoard {
     @Override
     public void setPiece(Position position, Piece piece) {
         array[position.getRow()][position.getCol()] = piece;
-
-
     }
 }
 
