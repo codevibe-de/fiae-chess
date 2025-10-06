@@ -59,25 +59,28 @@ public class GameStateCsvReader {
         // 5. letzte (neunte) Zeile lesen, muss "black" oder "white" enthalten
         // Es wird nur die neunte Zeile gelesen
         String lastRow = rows.get(8).trim();
-        String activePlayer = " ";
-        String inactivePlayer = " ";
-        if(lastRow.equalsIgnoreCase("white") || lastRow.equalsIgnoreCase("black")) {
-            activePlayer = lastRow;
-            inactivePlayer = activePlayer.equalsIgnoreCase("white") ? "black" : "white";
-        } else throw new GameStateFormatException("Inkorrekte/fehlende Spielerfarbe: " + lastRow + "Erwartet: 'white'/'black'");
+        PlayerColor activePlayerColor = PlayerColor.valueOf(lastRow.toUpperCase());
 
-        // 6. merke, wer aktive spieler ist
-        // Beide Spieler sind zur Weiterbenutzung verfügbar
-        player1 = new Player(activePlayer);
-        player1.setTurn(true);
-        player2 = new Player(inactivePlayer);
-
-        return null; // todo
+        // paketiere alles in einem GameState und gib das zurück
+        return new GameState(
+                activePlayerColor,
+                board
+        );
     }
 
 
     private Piece createPiece(String token) {
-        return null;
+        Character tokenChr = token.charAt(0);
+        PlayerColor color = (Character.isUpperCase(tokenChr)) ? PlayerColor.WHITE : PlayerColor.BLACK;
+        return switch (token.toUpperCase()) {
+            case "K" -> new King(color);
+            case "R" -> new Rook(color);
+            case "Q" -> new Queen(color);
+            case "B" -> new Bishop(color);
+            case "P" -> new Pawn(color);
+            case "N" -> new Knight(color);
+            default -> null;
+        };
     }
 
 }

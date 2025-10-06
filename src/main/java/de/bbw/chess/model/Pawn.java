@@ -1,6 +1,9 @@
 package de.bbw.chess.model;
 
 public class Pawn extends Piece{
+    public Pawn(PlayerColor color) {
+        super(color);
+    }
 
 //        @Override
 //        public abstract boolean canMoveTo();

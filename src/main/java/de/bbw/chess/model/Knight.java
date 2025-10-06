@@ -5,6 +5,10 @@ import java.util.List;
 
 public class Knight extends Piece{
 
+    public Knight(PlayerColor color) {
+        super(color);
+    }
+
     @Override
     protected ArrayList<Position> validMoves(){
         ArrayList<Position> valMoves=new ArrayList<>();

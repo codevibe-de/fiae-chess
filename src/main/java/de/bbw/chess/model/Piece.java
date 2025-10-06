@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public abstract class Piece {
 
-    private String color;
+    private final PlayerColor color;
     private Position position;
 
-    public String getColor() {
-        return color;
+    protected Piece(PlayerColor color) {
+        this.color = color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
+    public PlayerColor getPlayerColor() {
+        return color;
     }
 
     public Position getPosition() {

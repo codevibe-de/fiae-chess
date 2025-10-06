@@ -10,7 +10,7 @@ class ZweiDimGameBoardTest {
         // Arrange
         ZweiDimGameBoard board = new ZweiDimGameBoard();
         Position position = new Position(3, 4);
-        Piece piece = new Piece(); // oder was auch immer dein Piece-Konstruktor braucht
+        Piece piece = new Knight(PlayerColor.WHITE);
 
         // Act
         board.setPiece(position, piece);
@@ -19,6 +19,7 @@ class ZweiDimGameBoardTest {
         // Assert
         assertSame(piece, result);
     }
+
 
     @Test
     void testGetEmptyPosition() {
