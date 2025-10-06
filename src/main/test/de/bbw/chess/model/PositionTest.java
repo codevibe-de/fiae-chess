@@ -41,4 +41,16 @@ class PositionTest {
         Assertions.assertEquals(expectedCol, position.getCol());
     }
 
+    @Test
+    void parseMovementCommand() {
+        String boardCoords = "b1f6";
+
+        String expectedRow = "b1";
+        String expectedCol = "f6";
+        Assertions.assertEquals(expectedRow, Position.parseMovementCommand(boardCoords)[0].getBoardCoordinates());
+        Assertions.assertEquals(expectedCol, Position.parseMovementCommand(boardCoords)[1].getBoardCoordinates());
+
+
+
+    }
 }

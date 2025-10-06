@@ -29,7 +29,9 @@ public class Position {
     }
 
     public static Position[] parseMovementCommand(String movementCmd) {
-        return null; // todo
+        Position startPos= new Position(movementCmd.substring(0,2));
+        Position targetPos= new Position(movementCmd.substring(2,4));
+        return new Position[] {startPos,targetPos};
     }
 
     // --- business logic methods ---
