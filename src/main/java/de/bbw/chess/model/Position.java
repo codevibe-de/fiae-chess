@@ -1,6 +1,7 @@
 package de.bbw.chess.model;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Position {
 
@@ -30,6 +31,10 @@ public class Position {
 
     public static Position[] parseMovementCommand(String movementCmd) {
         return null; // todo
+    }
+
+    public Position withRow(int row) {
+        return new Position(row, this.col);
     }
 
     // --- business logic methods ---
@@ -69,4 +74,18 @@ public class Position {
         return col;
     }
 
+    // --- equals & hashcode ---
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Position position = (Position) o;
+        return row == position.row && col == position.col;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(row, col);
+    }
 }
