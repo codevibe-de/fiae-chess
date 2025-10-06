@@ -16,6 +16,8 @@ public class ZweiDimGameBoard implements GameBoard {
     @Override
     public void setPiece(Position position, Piece piece) {
         array[position.getRow()][position.getCol()] = piece;
+        piece.setPosition(position);
     }
+
 }
 

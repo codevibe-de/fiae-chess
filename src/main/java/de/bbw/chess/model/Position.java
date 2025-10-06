@@ -15,7 +15,7 @@ public class Position {
     private final int col;
 
 
-    // --- constructors ---
+    // --- constructors & factories ---
 
     public Position(int row, int col) {
         this.row = row;
@@ -26,6 +26,10 @@ public class Position {
         int[] rowAndColArr = getIndices(boardCoords);
         this.row = rowAndColArr[0];
         this.col = rowAndColArr[1];
+    }
+
+    public static Position[] parseMovementCommand(String movementCmd) {
+        return null; // todo
     }
 
     // --- business logic methods ---

@@ -1,6 +1,9 @@
 package de.bbw.chess.model;
 
+import de.bbw.chess.IllegalMoveException;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Piece {
 
@@ -23,21 +26,12 @@ public abstract class Piece {
         this.position = position;
     }
 
+    public abstract List<Position> getMovePath(Position target) throws IllegalMoveException;
 
-    protected ArrayList<Position> validMoves(){
-        return null;
+
+
+
+    protected static record Diff(int x, int y) {
     }
-
-    public boolean canMoveTo(Position targetPos){
-        return validMoves().contains(targetPos);
-    }
-
-    protected static record Diff(int x , int y){
-
-    }
-
-//
-    //    public abstract String getToken();
-//    public abstract ??? getLocation();
 
 }
